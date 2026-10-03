@@ -1,0 +1,21 @@
+{
+    "url":"https://demowebshop.tricentis.com/",
+    "firstName":"Archana",
+    "lastName":"Achar",
+    "email":"archana9@gmail.com",
+    "password":"archana@123",
+    "Company" :"Company",
+    "City":"Udupi",
+    "Address1":"address1",
+    "Address2":"address2",
+    "Zipcode":"1234",
+    "PhoneNumber":"9876543210",
+    "FaxNumber":"234567890",
+
+    "newsletter":"archana@gmail.com",
+    "Search":"cell phone",
+    "assetion":"Thank you for signing up!"
+
+    
+    
+}
