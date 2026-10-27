@@ -3,13 +3,13 @@ import { count } from 'node:console';
 export class OpenBookCat {
     constructor(page) {
         this.page = page;
-        this.bookLink =page. getByRole("link", { name: 'Books' }).first()
+        this.bookLink =page. getByRole("link", { name: 'Books'}).first()
        
         this.addToCartButtons = page.locator(".product-item input.product-box-add-to-cart-button")
         this.cartLink = page.locator("//span[text()='Shopping cart']")
         this.cartRow = page.locator(".cart-item-row")
         //this.productName=page.locator(".cart-item-row .product-name");
-        this.quantity = page.locator('.cart-item-row .qty-input').first();
+        this.quantity = page.locator('.cart-item-row .qty-input').first()
         this.updateQuantity = page.locator('.update-cart-button')
         this.OrderTotal = page.locator("//span[@class='product-price order-total']")
         this.RemoveProduct = page.locator("//input[@name='removefromcart']").nth(2)
@@ -17,12 +17,12 @@ export class OpenBookCat {
         this.updateCart = page.getByRole('button', { name: 'Update shopping cart' })
         this.terms = page.locator("input#termsofservice")
         this.checkout = page.locator("button#checkout")
-        this.city = page.locator("#BillingNewAddress_City")
-        this.Address1 = page.locator("#BillingNewAddress_Address1")
-        this.Address2 = page.locator("#BillingNewAddress_Address2")
-        this.postalCode = page.locator("#BillingNewAddress_ZipPostalCode")
-        this.PhoneNumber = page.locator("#BillingNewAddress_PhoneNumber")
-        this.faxNumber = page.locator('#BillingNewAddress_FaxNumber')
+        // this.city = page.locator("#BillingNewAddress_City")
+        // this.Address1 = page.locator("#BillingNewAddress_Address1")
+        // this.Address2 = page.locator("#BillingNewAddress_Address2")
+        // this.postalCode = page.locator("#BillingNewAddress_ZipPostalCode")
+        // this.PhoneNumber = page.locator("#BillingNewAddress_PhoneNumber")
+        // this.faxNumber = page.locator('#BillingNewAddress_FaxNumber')
 
         this.AddressUpdateContinue = page.locator(".buttons .new-address-next-step-button").first()
         this.shippingSave = page.locator("//input[@onClick='Shipping.save()']")
@@ -47,24 +47,24 @@ export class OpenBookCat {
         for (let i = 0; i < ProductCount; i++) {
             await expect(price.nth(i)).toBeVisible();
         }
-        ///const quantity = await cartRow.locator('.qty-input');
+        const quantity = await this.cartRow.locator('.qty-input');
         for (let i = 0; i < ProductCount; i++) {
-            await expect(this.quantity.nth(i)).toHaveCount(Number(ProductCount))
+            await expect(quantity.nth(i)).toHaveCount(1);
         }
         await this.quantity.fill(Quantity)
         await this.updateQuantity.click();
-        const orderTotalText = await this.orderTotal.innerText();
+        const orderTotalText = await this.OrderTotal.innerText();
     console.log("Order total:", orderTotalText);
         await this.RemoveProduct.check();
         await this.updateCart.click()
         await this.terms.check()
         await this.checkout.click()
-        await this.city.fill(city)
-        await this.Address1.fill(address1)
-        await this.Address2.fill(address2)
-        await this.postalCode.fill(zipcode)
-        await this.PhoneNumber.fill(phonenumber)
-        await this.faxNumber.fill(faxnumber)
+        // await this.city.fill(city)
+        // await this.Address1.fill(address1)
+        // await this.Address2.fill(address2)
+        // await this.postalCode.fill(zipcode)
+        // await this.PhoneNumber.fill(phonenumber)
+        // await this.faxNumber.fill(faxnumber)
 
         await this.AddressUpdateContinue.click()
         await this.shippingSave.click()

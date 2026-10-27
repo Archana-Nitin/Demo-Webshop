@@ -11,7 +11,7 @@ export class Email{
         this.fillemail=page.locator('.friend-email')
         this.message=page.getByLabel("Personal message")
         this.sendemail=page.getByRole("button",{name:'Send email'})
-        this.logot=page.getByRole("link",{name:'Log out'})
+        this.logout=page.getByRole("link",{name:'Log out'})
         this.search2= page.locator("#small-searchterms")
         this.searchButton=page.getByRole("button", { name: "Search" })
         this.openProduct=page.locator('.product-item .product-title')
@@ -30,7 +30,7 @@ export class Email{
         await this.message.fill(Message)
         await this.sendemail.click()
         await expect(this.page.locator("div.result")).toContainText(' has been sent.');
-        await this.logot.click();
+        await this.logout.click();
         await this.search2.fill(Search2)
         await this.searchButton.click()
         await this.openProduct.first().click()

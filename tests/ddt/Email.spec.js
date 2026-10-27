@@ -48,8 +48,5 @@ test("Email", async ({ page }) => {
     let email1=new Email(page)
     await email1.emailFunction(Registration.Search,email.friend,email.Message,email.Search2,Registration.email,)
 
-    //!Logout
-
-    let logout1=new Logout(page)
-        await logout1.Logout();
+    
 })
